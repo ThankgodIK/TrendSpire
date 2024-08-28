@@ -1,4 +1,4 @@
-import Order from "../models/Orders.js";
+import orderSchema from "../models/Orders.js";
 
 //store order
 const processOder = async (req, res) => {
@@ -9,7 +9,7 @@ const processOder = async (req, res) => {
     res.status(401);
     throw new Error("Your Cart is empty");
   } else {
-    const order = await Order.create({
+    const order = await orderSchema.create({
       userOrder,
       userId,
       orderDate,
@@ -18,3 +18,5 @@ const processOder = async (req, res) => {
     res.status(201).json(createdOrder);
   }
 };
+
+export default processOder;

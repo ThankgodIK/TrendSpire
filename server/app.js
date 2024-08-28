@@ -1,6 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import userRoutes from "./routes/usersRoute.js";
+import orderRoute from "./routes/ordersRoute.js";
 import productRoute from "./routes/productRoute.js";
 import connectDb from "./config/mongoDB.js";
 
@@ -12,6 +13,7 @@ const app = express();
 app.use(express.json());
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoute);
+app.use("/api/orders", orderRoute);
 
 const PORT = process.env.PORT;
 
